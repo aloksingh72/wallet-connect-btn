@@ -17,6 +17,7 @@ const providerOptions = {
 
 const Navbar = () => {
   const [web3Provider, setWeb3Provider] = useState(null);
+  const [walletAddress,setWalletAddress] = useState("");
 
   async function connectWallet() {
     try {
@@ -32,11 +33,22 @@ const Navbar = () => {
 
       if (web3ModalProvider) {
         setWeb3Provider(web3ModalProvider);
+        const signer = await web3ModalProvider.getSigner();
+        const address = await signer.getAddress();
+        console.log("wallet Address",address);
+
+        setWalletAddress(address);//save the wallet address to the state
       }
     } catch (error) {
       console.error("Error connecting wallet:", error);
     }
   }
+
+ // Function to format wallet address (e.g., 0x1234...abcd)
+ const formatAddress = (address) => {
+    if (!address) return "";
+    return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+  };
 
   return (
     <div className="flex bg-black h-screen flex-col">
@@ -56,11 +68,20 @@ const Navbar = () => {
             Connect Wallet
           </button>
         ) : (
-          <div>
-            <button 
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-                {web3Provider.provider.provider}
-                </button>
+          <div className="flex items-center">
+             {/* Show Wallet Address */}
+             <span className="mr-4  bg-blue-500 text-white py-2 px-4 rounded-lg">
+             {formatAddress(walletAddress)}
+             </span>
+             <button
+              className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
+              onClick={() => {
+                  setWeb3Provider(null);
+                  setWalletAddress("");
+                }}
+            >
+              Disconnect
+            </button>
           </div>
         )}
       </div>
