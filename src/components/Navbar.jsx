@@ -3,6 +3,8 @@ import newlogo from "../images/new-logo.png";
 import Web3Modal from "web3modal";
 import { BrowserProvider } from "ethers"; // Correct import for ethers v6
 import { CoinbaseWalletSDK } from "@coinbase/wallet-sdk";
+// import WalletConnectProvider from "@walletconnect/web3-provider";
+// import Fortmatic from "fortmatic"; 
 import { useState } from "react";
 
 const providerOptions = {
@@ -11,6 +13,18 @@ const providerOptions = {
     options: {
       appName: "Web3Modal Demo",
       infuraId: "https://ropsten.infura.io/v3/fefnesfe", // Corrected infuraId format
+    },
+  },
+  walletconnect: {
+    package: WalletConnectProvider,
+    options: {
+      infuraId: "https://ropsten.infura.io/v3/fefnesfe", // Replace with your Infura ID
+    },
+  },
+  fortmatic: {
+    package: Fortmatic,
+    options: {
+      key: "YOUR_FORTMATIC_API_KEY", // Replace with your Fortmatic API key
     },
   },
 };
