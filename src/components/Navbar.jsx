@@ -15,18 +15,8 @@ const providerOptions = {
       infuraId: "https://ropsten.infura.io/v3/fefnesfe", // Corrected infuraId format
     },
   },
-  walletconnect: {
-    package: WalletConnectProvider,
-    options: {
-      infuraId: "https://ropsten.infura.io/v3/fefnesfe", // Replace with your Infura ID
-    },
-  },
-  fortmatic: {
-    package: Fortmatic,
-    options: {
-      key: "YOUR_FORTMATIC_API_KEY", // Replace with your Fortmatic API key
-    },
-  },
+ 
+  
 };
 
 const Navbar = () => {
