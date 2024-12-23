@@ -18,7 +18,7 @@ const providerOptions = {
  
   
 };
-
+//navbar function 
 const Navbar = () => {
   const [web3Provider, setWeb3Provider] = useState(null);
   const [walletAddress,setWalletAddress] = useState("");
