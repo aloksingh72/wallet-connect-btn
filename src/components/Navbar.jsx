@@ -22,7 +22,7 @@ const providerOptions = {
 const Navbar = () => {
   const [web3Provider, setWeb3Provider] = useState(null);
   const [walletAddress,setWalletAddress] = useState("");
-
+//function to connect wallet
   async function connectWallet() {
     try {
       const web3modal = new Web3Modal({
