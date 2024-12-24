@@ -6,7 +6,7 @@ import { CoinbaseWalletSDK } from "@coinbase/wallet-sdk";
 // import WalletConnectProvider from "@walletconnect/web3-provider";
 // import Fortmatic from "fortmatic"; 
 import { useState } from "react";
-
+//various wallet connect options
 const providerOptions = {
   coinbasewallet: {
     package: CoinbaseWalletSDK,
