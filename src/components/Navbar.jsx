@@ -29,7 +29,7 @@ const Navbar = () => {
         cacheProvider: false,
         providerOptions,
       });
-
+// modal instance
       const web3ModalInstance = await web3modal.connect();
       const web3ModalProvider = new BrowserProvider(web3ModalInstance);
 
